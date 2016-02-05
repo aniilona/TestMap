@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery maphilight documentation</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+       <script type="text/javascript" src="maphilight-master/jquery.maphilight.js"></script>
+
+        <script>
+             
+            $(function() {
+            $('.map').maphilight();
+            $('#head').click(function(e) {
+                e.preventDefault();
+                var data = $('#boobs').data('maphilight') || {};
+                data.alwaysOn = !data.alwaysOn;
+                $('#boobs').data('maphilight', data).trigger('alwaysOn.maphilight');
+                $('#press').data('maphilight', data).trigger('alwaysOn.maphilight');
+
+            });
+            });
+        </script>
+</head>
+
+<body>
+<!--
+<object data="muscles-map.svg" type="image/svg+xml" id="imap" width="500" height="420"></object>-->
+<style type="text/css">
+  .area {
+    stroke: black;
+    stroke-width: 2px;
+    fill: #E9FFE9;
+  }
+  .city {
+    stroke: black;
+    stroke-width: 2px;
+    fill: red;
+  }
+  #title {
+    line-height: 0; /* Изменяем межстрочное расстояние */
+   }
+   #title img {
+    border: none; /* Убираем рамку вокруг изображения */
+}
+</style>
+
+<img src="path35241.png" alt="" class="map" usemap="#Map" />
+<map name="Map" id="Map">
+    <area alt="Голова" title="labadabdab" href="#" id="head" shape="poly" onfocus="this.blur();" class="{alwaysOn:false,stroke:false,fillColor:'000000',fillOpacity:0.2}" coords="252,33,256,50,260,63,261,81,254,102,240,121,222,127,204,127,187,121,175,105,160,90,161,72,163,41,171,24,182,8,195,5,212,3,228,7,242,19" data-maphilight='{"strokeColor":"0000ff","strokeWidth":5,"fillColor":"ff0000","fillOpacity":0.6}'/>
+
+    <area alt="Мышцы пресса" title="hey" href="#" id="press" shape="poly" onfocus="this.blur();" coords="306,333,292,355,278,383,268,416,266,438,203,446,154,450,113,433,105,415,115,378,129,339,131,309,164,289,209,280,255,287,295,309" class="{alwaysOn:true,stroke:false,fillColor:'ffc000',fillOpacity:0.1}" />
+
+    <area alt="Мышцы груди" title="" href="#" id="boobs" shape="poly" onfocus="this.blur();" class="{alwaysOn:true,stroke:false,fillColor:'ffc000',fillOpacity:0.1}" coords="137,209,196,191,255,191,300,204,317,284,308,311,240,279,175,276,139,289,130,259,125,225" />
+</map>
+</body>
